@@ -1,18 +1,14 @@
 
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, MapPin, Phone } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
-  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,43 +18,13 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: 'Piyush Kumar Sodhi',
-      };
-
-      await emailjs.send(
-        'service_x7n2drk', // Your service ID
-        'template_h6imaap', // Your template ID
-        templateParams,
-        'fvNJV4uy-JrGhTUeh' // Your public key
-      );
-
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-
-      // Reset form
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      toast({
-        title: "Failed to send message",
-        description: "There was an error sending your message. Please try again or contact me directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+    // Reset form
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    alert('Thank you for your message! I will get back to you soon.');
   };
 
   return (
@@ -159,8 +125,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    disabled={isLoading}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 disabled:opacity-50"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200"
                     placeholder="Your name"
                   />
                 </div>
@@ -175,8 +140,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    disabled={isLoading}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 disabled:opacity-50"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -193,8 +157,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  disabled={isLoading}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 disabled:opacity-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200"
                   placeholder="What's this about?"
                 />
               </div>
@@ -209,19 +172,17 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  disabled={isLoading}
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 resize-none disabled:opacity-50"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors duration-200 resize-none"
                   placeholder="Tell me about your project or how we can work together..."
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isLoading}
-                className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               >
-                {isLoading ? 'Sending...' : 'Send Message'}
+                Send Message
               </button>
             </form>
           </div>

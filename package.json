@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://piyush1457.github.io/piyush-portfolio-craft",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +11,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",

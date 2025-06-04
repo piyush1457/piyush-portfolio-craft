@@ -15,15 +15,12 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <p className="text-lg mb-4 opacity-90">Hey, I'm Piyush</p>
+            <p className="text-lg mb-4 opacity-90">Hey, I'm Piyush 👋</p>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-white">Aspiring</span>
+              <span className="text-white">Front</span>
+              <span className="text-yellow-300">end</span>
               <br />
-              <span className="text-yellow-300">Full Stack</span>
-              <br />
-              <span className="text-gray-200">Developer &</span>
-              <br />
-              <span className="text-gray-200">Data Analyst</span>
+              <span className="text-gray-200">Developer</span>
             </h1>
             <p className="text-xl mb-8 text-gray-200 max-w-2xl">
               I'm a frontend developer based in India. I'll help you build beautiful websites your users will love.
@@ -69,12 +66,13 @@ const Hero = () => {
           </div>
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 rounded-full border-4 border-white/20 p-2 overflow-hidden">
-                <img 
-                  src="/lovable-uploads/64f6cc40-567e-4708-9814-347e72549292.png"
-                  alt="Piyush Kumar Sodhi"
-                  className="w-full h-full rounded-full object-cover object-center transform scale-110"
-                />
+              <div className="w-80 h-80 rounded-full border-4 border-white/20 p-2">
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center text-6xl text-gray-600">
+                  PK
+                </div>
+              </div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-300 rounded-full flex items-center justify-center text-2xl">
+                ⚡
               </div>
             </div>
           </div>
