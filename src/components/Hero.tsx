@@ -76,9 +76,6 @@ const Hero = () => {
                   className="w-full h-full rounded-full object-cover object-center transform scale-110"
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-300 rounded-full flex items-center justify-center text-2xl">
-                ⚡
-              </div>
             </div>
           </div>
         </div>
